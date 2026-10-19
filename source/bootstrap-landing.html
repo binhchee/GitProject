@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fieldnotes | Khám phá gần nhà</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root { --pine: #16483e; --lime: #d8e969; --coral: #d36a4b; }
+    body { color: #263631; }
+    .hero { min-height: 520px; display: flex; align-items: center; color: #fff; background: linear-gradient(90deg, rgba(12, 47, 39, .88), rgba(12, 47, 39, .15)), url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=85") center / cover; }
+    .hero h1, .hero p { max-width: 650px; }
+    .hero h1 { font-size: clamp(2.6rem, 5vw, 4.6rem); font-weight: 700; }
+    .btn-lime { background: var(--lime); border-color: var(--lime); color: #183d34; font-weight: 700; }
+    .btn-lime:hover { background: #c5d653; border-color: #c5d653; color: #183d34; }
+    .intro-image { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
+    .feature { height: 100%; padding: 22px; border-top: 3px solid var(--coral); background: #f2f5ee; }
+    .feature-icon { display: inline-grid; width: 38px; height: 38px; place-items: center; margin-bottom: 16px; border-radius: 50%; background: var(--lime); color: var(--pine); font-size: 1.2rem; font-weight: 700; }
+    .cta { background: var(--pine); color: #fff; }
+    @media (max-width: 575.98px) { .hero { min-height: 440px; background-position: 62% center; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-white border-bottom" aria-label="Điều hướng chính">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home" style="color: var(--pine)">Fieldnotes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteMenu" aria-controls="siteMenu" aria-expanded="false" aria-label="Mở menu"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="siteMenu">
+        <div class="navbar-nav ms-auto"><a class="nav-link" href="#about">Khám phá</a><a class="nav-link" href="#features">Lợi ích</a><a class="nav-link" href="#join">Tham gia</a></div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container py-5">
+      <p class="text-uppercase fw-semibold mb-3">Tìm cảm hứng quanh bạn</p>
+      <h1>Những chuyến đi nhỏ, câu chuyện dài.</h1>
+      <p class="lead mt-3 mb-4">Khám phá những địa điểm gần nhà qua gợi ý được tuyển chọn bởi cộng đồng yêu trải nghiệm.</p>
+      <a class="btn btn-lime btn-lg" href="#join">Đăng ký ngay</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container py-5 py-lg-6" id="about">
+      <div class="row align-items-center g-4 g-lg-5 py-lg-4">
+        <div class="col-12 col-lg-6">
+          <img class="intro-image img-fluid" src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=85" alt="Con đường đi bộ giữa thiên nhiên xanh">
+        </div>
+        <div class="col-12 col-lg-6">
+          <p class="text-uppercase fw-semibold mb-2" style="color: var(--pine)">Fieldnotes giúp bạn</p>
+          <h2 class="display-6 fw-bold">Đi gần hơn, nhìn sâu hơn.</h2>
+          <p class="text-secondary">Từ một quán cà phê yên tĩnh đến lối đi ven sông, mỗi gợi ý đều giúp bạn dành thời gian chất lượng cho thành phố của mình.</p>
+          <a class="btn btn-outline-success" href="#features">Xem cách hoạt động</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5" id="features" style="background:#f6f7f2">
+      <div class="container py-lg-3">
+        <div class="row mb-4"><div class="col-lg-8"><p class="text-uppercase fw-semibold mb-2" style="color: var(--pine)">Một cách khám phá khác</p><h2 class="display-6 fw-bold">Ít lên kế hoạch hơn, nhiều trải nghiệm hơn.</h2></div></div>
+        <div class="row g-3">
+          <div class="col-12 col-md-6 col-xl-3"><article class="feature"><span class="feature-icon" aria-hidden="true">01</span><h3 class="h5">Gợi ý gần bạn</h3><p class="mb-0 text-secondary">Tìm địa điểm phù hợp với thời gian và sở thích hôm nay.</p></article></div>
+          <div class="col-12 col-md-6 col-xl-3"><article class="feature"><span class="feature-icon" aria-hidden="true">02</span><h3 class="h5">Danh sách tuyển chọn</h3><p class="mb-0 text-secondary">Khám phá lộ trình được tạo bởi người địa phương.</p></article></div>
+          <div class="col-12 col-md-6 col-xl-3"><article class="feature"><span class="feature-icon" aria-hidden="true">03</span><h3 class="h5">Chia sẻ ghi chú</h3><p class="mb-0 text-secondary">Lưu lại những chi tiết nhỏ khiến chuyến đi đáng nhớ.</p></article></div>
+          <div class="col-12 col-md-6 col-xl-3"><article class="feature"><span class="feature-icon" aria-hidden="true">04</span><h3 class="h5">Cộng đồng thân thiện</h3><p class="mb-0 text-secondary">Trao đổi mẹo hay và truyền cảm hứng cho nhau.</p></article></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta py-5" id="join">
+      <div class="container d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+        <div><p class="text-uppercase small fw-semibold mb-2" style="color:var(--lime)">Bắt đầu hôm nay</p><h2 class="h2 fw-bold mb-0">Chọn một nơi và bắt đầu khám phá.</h2></div>
+        <a class="btn btn-lime btn-lg flex-shrink-0" href="mailto:hello@fieldnotes.example">Tham gia Fieldnotes</a>
+      </div>
+    </section>
+  </main>
+  <footer class="py-4 bg-dark text-white"><div class="container d-flex flex-column flex-sm-row justify-content-between gap-2"><strong>Fieldnotes</strong><span class="text-white-50">© 2026 Fieldnotes. Khám phá có trách nhiệm.</span></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
