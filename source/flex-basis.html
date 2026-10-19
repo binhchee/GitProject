@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thực hành Flexbox | flex-basis</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px 20px;
+      color: #202b33;
+      background: #f3f6f5;
+      font: 16px/1.5 Arial, sans-serif;
+    }
+
+    main {
+      width: min(100%, 960px);
+      margin: 0 auto;
+    }
+
+    h1, h2, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+      font-size: 2rem;
+    }
+
+    .intro {
+      margin-bottom: 28px;
+      color: #52616a;
+    }
+
+    section {
+      margin: 20px 0;
+      padding: 20px;
+      border: 1px solid #d4dfdc;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    h2 {
+      margin-bottom: 6px;
+      font-size: 1.2rem;
+    }
+
+    .description {
+      margin-bottom: 14px;
+      color: #52616a;
+    }
+
+    .container {
+      display: flex;
+      gap: 10px;
+      min-height: 110px;
+      padding: 10px;
+      border: 2px dashed #8da49d;
+      background: #f7faf9;
+    }
+
+    .item {
+      display: grid;
+      min-width: 0;
+      min-height: 72px;
+      place-items: center;
+      padding: 12px;
+      border: 1px solid #19745d;
+      background: #d7eee6;
+      color: #164d40;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .fixed .item {
+      flex: 0 0 180px;
+    }
+
+    .percentage .item {
+      flex: 0 0 50%;
+    }
+
+    .column {
+      flex-direction: column;
+      min-height: 310px;
+    }
+
+    .column .item {
+      flex: 0 0 64px;
+    }
+
+    .grow .item {
+      flex-basis: 100px;
+    }
+
+    .grow .item:nth-child(1),
+    .grow .item:nth-child(3) {
+      flex-grow: 1;
+    }
+
+    .grow .item:nth-child(2) {
+      flex-grow: 2;
+      background: #f8e7c9;
+      border-color: #b8791a;
+      color: #70450c;
+    }
+
+    .five-items .item {
+      flex-basis: 80px;
+    }
+
+    .five-items .item:nth-child(3) {
+      flex-grow: 2;
+      background: #f8e7c9;
+      border-color: #b8791a;
+      color: #70450c;
+    }
+
+    .five-items .item:not(:nth-child(3)) {
+      flex-grow: 1;
+    }
+
+    .flow-reverse {
+      flex-flow: row-reverse nowrap;
+    }
+
+    .flow .item {
+      flex: 0 0 96px;
+      min-height: 50px;
+      color: #fff;
+      background: #2672a8;
+      border-color: #15547f;
+    }
+
+    .flow-reverse .item {
+      background: #347c4a;
+      border-color: #235b34;
+    }
+
+    code {
+      padding: 2px 5px;
+      border-radius: 3px;
+      background: #edf2f0;
+      font-family: Consolas, monospace;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 22px 14px;
+      }
+
+      section {
+        padding: 15px;
+      }
+
+      .fixed .container {
+        overflow-x: auto;
+      }
+
+      .fixed .item {
+        flex-basis: 140px;
+      }
+
+      .percentage .container {
+        flex-wrap: wrap;
+      }
+
+      .percentage .item {
+        flex-basis: calc(50% - 5px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Thực hành <code>flex-basis</code></h1>
+    <p class="intro">So sánh kích thước cơ sở của Flex Item trên trục chính và cách Flexbox phân phối phần không gian còn lại.</p>
+
+    <section>
+      <h2>1. Kích thước cố định bằng px</h2>
+      <p class="description"><code>flex-basis: 180px</code> đặt kích thước cơ sở theo chiều ngang khi hướng là <code>row</code>.</p>
+      <div class="container fixed">
+        <div class="item">Item 1 · 180px</div>
+        <div class="item">Item 2 · 180px</div>
+        <div class="item">Item 3 · 180px</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Kích thước theo phần trăm</h2>
+      <p class="description"><code>flex-basis: 50%</code> chiếm một nửa trục chính của container.</p>
+      <div class="container percentage">
+        <div class="item">Item 1 · 50%</div>
+        <div class="item">Item 2 · 50%</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Đổi trục chính sang chiều dọc</h2>
+      <p class="description">Với <code>flex-direction: column</code>, <code>flex-basis: 64px</code> áp dụng theo chiều dọc.</p>
+      <div class="container column">
+        <div class="item">Item 1 · 64px</div>
+        <div class="item">Item 2 · 64px</div>
+        <div class="item">Item 3 · 64px</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. Kết hợp với flex-grow</h2>
+      <p class="description">Các item bắt đầu ở <code>100px</code>; Item 2 nhận phần không gian còn lại gấp đôi mỗi item bên cạnh.</p>
+      <div class="container grow">
+        <div class="item">Item 1 · grow 1</div>
+        <div class="item">Item 2 · grow 2</div>
+        <div class="item">Item 3 · grow 1</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. flex-grow với năm Flex Item</h2>
+      <p class="description">Mỗi item có <code>flex-basis: 80px</code>; Item 3 có <code>flex-grow: 2</code>, các item còn lại có <code>flex-grow: 1</code>.</p>
+      <div class="container five-items">
+        <div class="item">Item 1 · grow 1</div>
+        <div class="item">Item 2 · grow 1</div>
+        <div class="item">Item 3 · grow 2</div>
+        <div class="item">Item 4 · grow 1</div>
+        <div class="item">Item 5 · grow 1</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. flex-flow: row nowrap</h2>
+      <p class="description"><code>flex-flow</code> kết hợp <code>flex-direction</code> và <code>flex-wrap</code>; các item giữ thứ tự trái sang phải trên một hàng.</p>
+      <div class="container flow" style="flex-flow: row nowrap">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>7. flex-flow: row-reverse nowrap</h2>
+      <p class="description">Với <code>row-reverse nowrap</code>, thứ tự hiển thị đảo chiều nhưng item vẫn nằm trên một hàng.</p>
+      <div class="container flow flow-reverse">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
